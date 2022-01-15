@@ -1,3 +1,5 @@
+const button = document.querySelector("#button");
+
 const audioElement = document.querySelector("#audio");
 // VoiceRSS Javascript SDK
 const VoiceRSS = {
@@ -36,7 +38,8 @@ const VoiceRSS = {
     (t.onreadystatechange = function () {
       if (4 == t.readyState && 200 == t.status) {
         if (0 == t.responseText.indexOf("ERROR")) throw t.responseText;
-        (audioElement.src = t.responseText), audioElement.play();
+        audioElement.src = t.responseText;
+        audioElement.play();
       }
     }),
       t.open("POST", "https://api.voicerss.org/", !0),
